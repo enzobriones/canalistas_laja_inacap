@@ -1,3 +1,4 @@
+import 'package:canalistas_laja_inacap/config/theme/app_theme.dart';
 import 'package:canalistas_laja_inacap/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -10,8 +11,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomeScreen(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: const HomeScreen(),
+      theme: AppTheme(selectedColor: 0).getTheme(),
     );
   }
 }
