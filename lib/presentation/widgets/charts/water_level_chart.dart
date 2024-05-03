@@ -24,9 +24,9 @@ class WaterLevelChart extends StatelessWidget {
                 child: Wrap(
                   spacing: 20,
                   children: [
-                    ElevatedButton.icon(onPressed: () {}, label: const Text('Horas'), icon: const Icon(Icons.hourglass_empty_outlined),),
-                    ElevatedButton.icon(onPressed: () {}, label: const Text('Días'), icon: const Icon(Icons.calendar_today_outlined),),
-                    ElevatedButton.icon(onPressed: () {}, label: const Text('Semanas'), icon: const Icon(Icons.calendar_month_outlined),),
+                    FilledButton.icon(onPressed: () {}, label: const Text('Horas'), icon: const Icon(Icons.hourglass_empty_outlined),),
+                    FilledButton.icon(onPressed: () {}, label: const Text('Días'), icon: const Icon(Icons.calendar_today_outlined),),
+                    FilledButton.icon(onPressed: () {}, label: const Text('Semanas'), icon: const Icon(Icons.calendar_month_outlined),),
                   ],
 
                 ),

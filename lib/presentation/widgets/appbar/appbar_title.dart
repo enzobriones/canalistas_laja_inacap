@@ -10,7 +10,10 @@ class AppBarTitle extends StatelessWidget {
     return const Column(children: [
       Text(
         'Medición de caudales',
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),
+        style: TextStyle(
+          fontWeight: FontWeight.bold, 
+          fontSize: 24.0,
+        ),
       ),
       Text(
         'Bocatoma Tucapel',

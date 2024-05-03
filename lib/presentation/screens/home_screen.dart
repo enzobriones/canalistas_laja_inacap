@@ -1,3 +1,4 @@
+import 'package:canalistas_laja_inacap/presentation/widgets/appbar/appbar_leading.dart';
 import 'package:canalistas_laja_inacap/presentation/widgets/appbar/appbar_title.dart';
 import 'package:canalistas_laja_inacap/presentation/widgets/charts/water_level_chart.dart';
 import 'package:canalistas_laja_inacap/presentation/widgets/shared/side_menu.dart';
@@ -12,6 +13,10 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const AppBarTitle(),
         centerTitle: true,
+        leading: const Padding(
+          padding: EdgeInsets.all(2.0),
+          child: AppbarLeading(),
+        ),
       ),
       body: const WaterLevelChart(),
       endDrawer: const SideMenu(),
