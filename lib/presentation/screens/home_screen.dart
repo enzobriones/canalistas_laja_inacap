@@ -1,6 +1,6 @@
 import 'package:canalistas_laja_inacap/presentation/widgets/appbar/appbar_leading.dart';
 import 'package:canalistas_laja_inacap/presentation/widgets/appbar/appbar_title.dart';
-import 'package:canalistas_laja_inacap/presentation/widgets/charts/water_level_chart.dart';
+import 'package:canalistas_laja_inacap/presentation/widgets/charts/water_level_box.dart';
 import 'package:canalistas_laja_inacap/presentation/widgets/shared/side_menu.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
           child: AppbarLeading(),
         ),
       ),
-      body: const WaterLevelChart(),
+      body: const WaterLevelBox(),
       endDrawer: const SideMenu(),
     );
   }
