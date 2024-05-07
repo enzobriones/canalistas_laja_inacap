@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_dotenv: ^5.1.0
+  flutter_riverpod: ^2.5.1
   syncfusion_flutter_charts: ^25.1.42+1
   timezone: ^0.9.3
 

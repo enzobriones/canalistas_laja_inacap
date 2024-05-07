@@ -19,11 +19,6 @@ class WaterLevelBox extends StatelessWidget {
               WaterLevelChart(),
               ButtonsRow(),
             ]),
-            Column(children: [
-              Placeholder(
-                fallbackHeight: 250,
-              )
-            ]),
           ],
         ),
       ),

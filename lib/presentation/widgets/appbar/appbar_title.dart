@@ -11,15 +11,13 @@ class AppBarTitle extends StatelessWidget {
       Text(
         'Medición de caudales',
         style: TextStyle(
-          fontWeight: FontWeight.bold, 
-          fontSize: 24.0,
+          fontWeight: FontWeight.bold,
+          fontSize: 18.0,
         ),
       ),
       Text(
         'Bocatoma Tucapel',
-        style: TextStyle(
-          fontWeight: FontWeight.w300,
-        ),
+        style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16.0),
       )
     ]);
   }

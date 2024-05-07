@@ -1,58 +1,44 @@
-import 'dart:async';
-
 import 'package:canalistas_laja_inacap/domain/models/chart_data.dart';
-import 'package:canalistas_laja_inacap/services/api_service.dart';
-import 'package:canalistas_laja_inacap/services/location_service.dart';
+import 'package:canalistas_laja_inacap/presentation/providers/data_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class WaterLevelChart extends StatefulWidget {
+class WaterLevelChart extends StatelessWidget {
   const WaterLevelChart({super.key});
 
   @override
-  State<WaterLevelChart> createState() => _WaterLevelChartState();
-}
-
-class _WaterLevelChartState extends State<WaterLevelChart> {
-  late Stream<List<ChartData>> _dataStream;
-  late StreamSubscription _subscription;
-  List<ChartData> _chartData = [];
-
-  @override
-  void initState() {
-    super.initState();
-    final location = getLocation('America/Santiago');
-    _dataStream = getThingSpeakDataStream(location);
-    _subscription = _dataStream.listen((data) {
-      setState(() {
-        _chartData = data; 
-      });
-    });
-  }
-
-  @override
-  void dispose() {
-    _subscription.cancel();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return SfCartesianChart(
-      title: const ChartTitle(
-        text: 'Altura de agua (cm)',
-        textStyle: TextStyle(
-          fontWeight: FontWeight.bold
-        )
-      ),
-      primaryXAxis: const DateTimeAxis(),
-      series: <CartesianSeries>[
-        LineSeries<ChartData, DateTime>(
-          dataSource: _chartData,
-          xValueMapper: (ChartData data, _) => data.createdAt,
-          yValueMapper: (ChartData data, _) => data.value,
-        )
-      ],
+    return Consumer(
+      builder: (context, ref, child) {
+        final thingSpeakData = ref.watch(thingSpeakDataProvider);
+        return thingSpeakData.when(
+          data: (data) {
+            return SfCartesianChart(
+              title: const ChartTitle(text: 'Altura del agua'),
+              primaryXAxis: DateTimeAxis(),
+                series: <CartesianSeries<dynamic, dynamic>>[
+                LineSeries<ChartData, DateTime>(
+                  dataSource: data,
+                  xValueMapper: (ChartData data, _) => data.createdAt,
+                  yValueMapper: (ChartData data, _) => data.value,
+                )
+              ],
+            );
+          },
+          error: (error, stackTrace) {
+            return Center(
+              child: Text('Error: $error'),
+            );
+          },
+          loading: () {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          },
+        );
+      },
     );
   }
 }
+

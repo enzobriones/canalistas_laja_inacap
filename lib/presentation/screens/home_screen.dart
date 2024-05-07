@@ -18,7 +18,11 @@ class HomeScreen extends StatelessWidget {
           child: AppbarLeading(),
         ),
       ),
-      body: const WaterLevelBox(),
+      body: const Column(children: [
+        WaterLevelBox(),
+        // InfoTitle(text: 'Información'),
+        // InfoListView(waterLevel: 100, temperature: 20, humidity: 20,),
+      ]),
       endDrawer: const SideMenu(),
     );
   }
