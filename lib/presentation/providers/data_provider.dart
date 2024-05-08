@@ -34,7 +34,7 @@ class ThingSpeakDataNotifier extends StateNotifier<AsyncValue<List<ChartData>>> 
   Timer? _timer;
 
   void _startTimer() {
-    _timer = Timer.periodic(Duration(seconds: 10), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 10), (timer) {
       fetchData();
     });
   }
