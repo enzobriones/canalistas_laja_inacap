@@ -8,10 +8,8 @@ final appRouter = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      name: MainLayout.name,
-      builder: (context, state) => const MainLayout(
-        child: HomeScreen(),
-      ),
+      name: HomeScreen.name,
+      builder: (context, state) => const HomeScreen(),
     ),
     GoRoute(
       path: '/water-level',

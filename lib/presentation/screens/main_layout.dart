@@ -22,17 +22,21 @@ class _MainLayoutState extends State<MainLayout> {
       ),
       body: widget.child,
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
         items: [
           BottomNavigationBarItem(
             icon:  IconButton(
               onPressed: () => context.push('/water-level'), 
               icon: const Icon(Icons.height)
             ),
-            label: 'Altura'
+            label: 'Altura',
+            backgroundColor: Colors.grey.shade50,
+
           ),
-          const BottomNavigationBarItem(
-            icon:  Icon(Icons.thermostat),
-            label: 'Temperatura'
+          BottomNavigationBarItem(
+            icon:  const Icon(Icons.thermostat),
+            label: 'Temperatura',
+            backgroundColor: Colors.grey.shade50,
           ),
           const BottomNavigationBarItem(
             icon:  Icon(Icons.water_drop_outlined),

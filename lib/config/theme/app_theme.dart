@@ -29,5 +29,8 @@ class AppTheme {
     appBarTheme: const AppBarTheme(
       centerTitle: false,
     ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+       backgroundColor: Colors.grey[50],
+    ),
   );
 }
